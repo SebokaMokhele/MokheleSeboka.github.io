@@ -4,9 +4,10 @@
      <head>
 	 
          <title>People</title>
-		 <meta charset="UTF-8">
+		 <meta charset="UTF-8" name="viewpoint" content="width=device-width, initial-scale=1">
 		 <link rel="stylesheet" type="text/css" href="users.css" />
 		 <style> 
+		 
 		 input{font-size: 110%}
 		 .header1{
 					font-size: 50px;
@@ -19,7 +20,8 @@
 					
 		table, th, td
 				{
-					width: 80;
+					width: 100%;
+					height:100%;
 					margin: auto;
 					border: 1px solid white;
 					border-collapse: collapse;
@@ -36,6 +38,7 @@
 					padding: 10px;
 					opacity: 0.99;
 				}
+				
 		 </style>
 
      </head>
@@ -66,13 +69,15 @@
 						<p>People</p>
 					</div>
 					
-					<div id="discription2">
-					
+					<div id="discription2" style="overflow-x:auto;">
+							
 							<table>
 								<thead>
 									<tr>
 										<th>Photo</th>
+										
 										<th>First Name</th>
+										
 										<th>Download link</th>
 									</tr>
 								</thead>
@@ -82,54 +87,92 @@
 									<form>
 										<?php 
 											$i=0;
-											while($i<5)
+											
+											include_once('dbconn.php'); 
+																	
+											$Query1 = "SELECT * FROM Picture";
+																	
+											$result1 = $link->query($Query1);
+																	
+											if($result1->num_rows > 0)
 											{
-												?>
-												<tr>
-													<td>
-														<div class="img">
-															<label>picture here</label>
-														</div>
-													</td>
-													
-													<td>
-														<div class="ownName">
-															<label for="Name">
-															
-																<?php 
-																	include_once('dbconn.php'); 
-															
-																	$Query = "SELECT * FROM Person";
-																	
-																	$result = $link->query($Query);
-																	
-																	if($result->num_rows > 0)
-																	{
-																		$n=0;
-																		while($row = mysqli_fetch_array($result))
+												while($row1 = $result1->fetch_assoc())
+												{
+													?>
+													<tr>
+														<td>
+															<div class="img">
+																<label>
+																
+																	<?php 
+																		include_once('dbconn.php'); 
+																		
+																		$Query = "SELECT * FROM Picture";
+																		
+																		$result = $link->query($Query);
+																		
+																		if($result->num_rows > 0)
 																		{
-																			if($i==$n)
+																			$m=0;
+																			while($row = $result->fetch_assoc())
 																			{
-																				echo  $row['P_fname'];
-																				break;
+																				if($i==$m)
+																				{
+																					echo  "<img src ='{$row['Pic_dir']}' width='23%' height:='23%'>";
+																					break;
+																				}
+																				$m++;
 																			}
-																			$n++;
 																		}
-																	}
-																?>
-															</label>
-														</div>
-													</td>
-													<td>
-														<div class="download_Link">
-															<label>Download link</label>
-														</div>
-													</td>
-												</tr>
-										
-												<?php 
-										
-												$i++;
+																	?>
+																
+																</label>
+															</div>
+														</td>
+														
+														<td>
+															<div class="ownName">
+																<label for="Name">
+																
+																	<?php 
+																		 
+																
+																		$Query = "SELECT * FROM Person";
+																		
+																		$result = $link->query($Query);
+																		
+																		if($result->num_rows > 0)
+																		{
+																			$n=0;
+																			while($row = mysqli_fetch_array($result))
+																			{
+																				if($i==$n)
+																				{
+																					echo  $row['P_fname'];
+																					break;
+																				}
+																				$n++;
+																			}
+																		}
+																	?>
+																</label>
+															</div>
+														</td>
+														<td>
+															<div class="download_Link" >
+															
+																<p><a href="http://localhost/cyber/Download.php">Download<a></p>
+															
+															</div>
+															
+															
+														</td>
+													</tr>
+											
+													<?php 
+											
+													$i++;
+												}
 											}
 											mysqli_close($link);
 										?>

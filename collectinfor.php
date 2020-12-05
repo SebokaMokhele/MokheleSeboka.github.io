@@ -5,7 +5,7 @@
 	 
          <title>People</title>
 		 <meta charset="UTF-8">
-		 <link rel="stylesheet" type="text/css" href="users.css"/>
+		 <link rel="stylesheet" type="text/css" href="collectinfo.css"/>
 		 <style> 
 		 input{font-size: 110%}
 		 .header1{
@@ -47,24 +47,18 @@
 					
 					<div id="discription2">
 					
-						<form action="collecteddata.php" method="post">
+						<form action="collecteddata.php" method="post" enctype="multipart/form-data">
 				 
-								Firstname:<br><input type="text" name="C_fname" required><br><br>
-								Lastname:<br><input type="text" name="C_lname" required><br><br>
-								Age:<br><input type="text" name="C_age" required><br><br>
-								Gender:<br><input type="text" name="C_Gender" required><br><br>
-								Password:<br><input type="password" name="C_Psswrd" required><br><br>
-							
-							<!-- <div class="popup">
-							<div class="popcontainer">
-							
-								<h2>Successfully collection of information</h2>
+								Firstname:<br><input type="text" name="C_fname" required><br>
+								Lastname:<br><input type="text" name="C_lname" required><br>
+								Age:<br><input type="text" name="C_age" required><br>
+								Gender:<br><input type="text" name="C_Gender" required><br>
+								Password:<br><input type="password" name="C_Psswrd" required><br>
 								
-								<button type="button" class="close-button"></button>
+								<label for="fileSelect">Upload image:</label>
+								<input type="file" name="photo" id="fileSelect">
+								<p><strong>Note:</strong>.jpg, .jpeg, .gif, .png(max size<=5MB).</p>
 								
-							</div>
-							</div> -->
-							
 							<button type="submit" class="button">submit</button>
 						</form>
 						
