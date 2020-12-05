@@ -8,6 +8,17 @@
 		 <link rel="stylesheet" type="text/css" href="users.css" />
 		 <style> 
 		 
+		 .my-custom-scrollbar
+		 {
+			 position:absolute;
+			 height: 100%;
+			 overflow: auto;
+		 }
+		 .table-wrapper-scroll-y
+		 {
+			 display: block;
+			 margin-bottom:60%
+		 }
 		 input{font-size: 110%}
 		 .header1{
 					font-size: 50px;
@@ -65,20 +76,19 @@
 				</div>
 				
 				<div class="main">
+					
 					<div id="discription1">
 						<p>People</p>
 					</div>
 					
-					<div id="discription2" style="overflow-x:auto;">
+					<div class="table-wrapper-scroll-y my-custom-scrollbar" id="discription2"">
 							
-							<table>
+							<table class="table table-bordered table-stripped mb-0">
 								<thead>
 									<tr>
-										<th>Photo</th>
-										
-										<th>First Name</th>
-										
-										<th>Download link</th>
+										<th >Photo</th>
+										<th >First Name</th>
+										<th >Download link</th>
 									</tr>
 								</thead>
 								
@@ -161,7 +171,7 @@
 														<td>
 															<div class="download_Link" >
 															
-																<p><a href="http://localhost/cyber/Download.php">Download<a></p>
+																<p><a href="http://localhost/cyber/Download.php" class="dwnload">Download<a></p>
 															
 															</div>
 															
@@ -181,6 +191,7 @@
 							</table>
 						
 					</div>
+					
 				</div>
 			</div>
 		</body>

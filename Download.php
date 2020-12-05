@@ -23,7 +23,7 @@
 		}
 		
 		$mypdf = new PDF();
-		$mypdf->SetAutoPageBreak(true,215);
+		$mypdf->SetAutoPageBreak(true,130);
 		
 		$mypdf -> AliasNbPages('{pages}');
 
@@ -47,15 +47,13 @@
 				{
 					if($i==$m)
 					{
-					//	echo  "<img src ='{$row['Pic_dir']}' width='23%' height:='23%'>";
-						$mypdf->Cell(65,12,$row['Pic_dir'],1);
+						$PDFimage = $row['Pic_dir'];
+						$mypdf->Cell(34,30,$mypdf->Image($PDFimage,20,$mypdf->GetY(),15), 1,0,'L',false);
 						break;
 					}
 					$m++;
 				}
 			}
-			 
-	
 			$Query1 = "SELECT * FROM Person";
 			
 			$result1 = $link->query($Query1);
@@ -67,16 +65,15 @@
 				{
 					if($i==$n)
 					{
-						//echo  $row['P_fname'];
-						$mypdf->Cell(55,12,$row1['P_fname'],1);
-						break;
+						$mypdf->Cell(34,30,$row1['P_fname'],1);
+						$mypdf->Cell(34,30,$row1['P_lname'],1);
+						$mypdf->Cell(34,30,$row1['Age'],1);
+						$mypdf->Cell(34,30,$row1['Gender'],1);
 					}
 					$n++;
 				}
 			}
-		
 			$i++;
-			
 		}
 		mysqli_close($link);
 		

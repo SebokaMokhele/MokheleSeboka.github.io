@@ -4,8 +4,7 @@ body
 	  margin: 0;
 	  padding: 0;
 	  height: 100%;
-	  width: 100%;
-    }
+	}
     .wrapper{
 		
 		background-size: cover;
@@ -78,37 +77,49 @@ body
 	.wrapper .main
 	{
 		position: absolute;
-		top: 13%;
-		margin-left: 350px;
-		margin-right: 350px;
-		bottom: 60px;
+		top: 10%;
+		margin-left: 250px;
+		margin-right: 150px;
+		bottom: 80px;
 		transform: transform(-50%, -50%);
 		user-select: none;
 	}
 	
 	#discription1
 	{
-		margin-left: 150px;
+		margin-left: 250px;
 		margin-right: 150px;
 		text-align: center;
 		color:black;
+		font-size:30px;
+		font-weight:bold;
 		
-		border: 2px solid maroon;
-		padding: 10px;
-		border-radius: 50px 10px 1px 1px;
+		
+		padding: 10px 60px;
+	
 	}
     #discription2
 	{
-		margin-left: 150px;
+		margin-left: 250px;
 		margin-right: 150px;
 		height: 100%;
 		width:100%;
+		font-size:20px;
 		color:black;
 		border: 2px solid maroon;
 		padding: 10px;
-		border-radius: 1px 1px 50px 10px;
+		border-radius: 10px 1px 1px 10px;
 	}
-	
+	.dwnload
+	{
+		font-size:30px;
+		color:white;
+	}
+	.ownName
+	{
+		font-size:30px;
+		color:white;
+	}
 	.button
 	{
 		background-color: maroon;
@@ -121,16 +132,3 @@ body
 	.button:hover{
 		background: green;
 	}
-	
-	footer
-	{   
-	    border: 1px;
-		position: fixed;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		text-align:center;
-		padding: 1px;
-		color: Black;
-	}
-	
